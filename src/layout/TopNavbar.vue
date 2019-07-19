@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Dashboard</a>
+      <a class="navbar-brand" href="#">NYSL</a>
       <button type="button"
               class="navbar-toggler navbar-toggler-right"
               :class="{toggled: $sidebar.showSidebar}"
@@ -26,11 +26,9 @@
               <b class="caret"></b>
               <span class="notification">5</span>
             </template>
-            <a class="dropdown-item" href="#">Notification 1</a>
-            <a class="dropdown-item" href="#">Notification 2</a>
-            <a class="dropdown-item" href="#">Notification 3</a>
-            <a class="dropdown-item" href="#">Notification 4</a>
-            <a class="dropdown-item" href="#">Another notification</a>
+            <a class="dropdown-item" href="#">Sobre nosotros</a>
+            <a class="dropdown-item" href="#">Inscribirse en NYSL</a>
+            <a class="dropdown-item" href="#">Conocé las reglas</a>
           </base-dropdown>
           <li class="nav-item">
             <a href="#" class="nav-link">

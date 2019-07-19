@@ -1,14 +1,17 @@
 <template>
   <div class="content">
     <div class="container-fluid">
-      <div class="row">
-      
-        <div class="col-md-6">
-          <card>
+      <card class="card-lo-proximo">
             <template slot="header">
-              <h2 class="title">Lo último</h2>
+              <h2 class="title">Lo próximo</h2>
               <p class="category">Esto está pasando en el club</p>
             </template>
+      </card>
+            <div class="row">
+
+        <div class="col-md-6">
+          <card>
+            
             <l-table :data="tableData.data"
                      :columns="tableData.columns">
               <template slot="columns"></template>

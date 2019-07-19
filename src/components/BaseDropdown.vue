@@ -28,7 +28,7 @@
       icon: String,
       tag: {
         type: String,
-        default: 'li'
+        default: 'a',
       }
     },
     data () {

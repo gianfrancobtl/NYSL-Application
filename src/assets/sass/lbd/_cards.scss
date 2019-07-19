@@ -241,6 +241,7 @@
     box-shadow: none;
     border-radius: 0;
 
+
     .card-image{
         border-radius: 4px;
     }
@@ -252,4 +253,20 @@
     .card-header{
         background-color: transparent !important;
     }
+}
+
+.card-lo-proximo{
+    background-color: transparent;
+    box-shadow: none;
+    border-radius: 0;
+    text-align:center;
+    width: 100%;
+}
+
+.card-proximos-partidos{
+    background-color: transparent;
+    box-shadow: none;
+    border-radius: 0;
+    text-align:center;
+    width: 100%;
 }

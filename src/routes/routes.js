@@ -3,7 +3,7 @@ import DashboardLayout from '../layout/DashboardLayout.vue'
 import NotFound from '../pages/NotFoundPage.vue'
 
 // Admin pages
-import UltimasNoticias from 'src/pages/UltimasNoticias.vue'
+import LoProximo from 'src/pages/LoProximo.vue'
 import ProximosPartidos from 'src/pages/ProximosPartidos.vue'
 import UserProfile from 'src/pages/UserProfile.vue'
 import Typography from 'src/pages/Typography.vue'
@@ -24,9 +24,9 @@ const routes = [
     redirect: '/admin/UltimasNoticias',
     children: [
       {
-        path: 'ultimas-noticias',
-        name: 'Ultimas Noticias',
-        component: UltimasNoticias
+        path: 'lo-proximo',
+        name: 'Lo Próximo',
+        component: LoProximo
       },
       {
         path: 'proximos-partidos',

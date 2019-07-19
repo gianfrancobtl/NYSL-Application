@@ -2,9 +2,9 @@
   <div class="wrapper">
     <side-bar>
       <mobile-menu slot="content"></mobile-menu>
-      <sidebar-link to="/admin/ultimas-noticias">
+      <sidebar-link to="/admin/lo-proximo">
         <i class="nc-icon nc-chart-pie-35"></i>
-        <p>Últimas noticias</p>
+        <p>Lo próximo</p>
       </sidebar-link>
       <sidebar-link to="/admin/proximos-partidos">
         <i class="nc-icon nc-notes"></i>
