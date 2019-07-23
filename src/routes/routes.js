@@ -7,7 +7,6 @@ import LoProximo from 'src/pages/LoProximo.vue'
 import ProximosPartidos from 'src/pages/ProximosPartidos.vue'
 import UserProfile from 'src/pages/UserProfile.vue'
 import Typography from 'src/pages/Typography.vue'
-import Icons from 'src/pages/Icons.vue'
 import Maps from 'src/pages/Maps.vue'
 import Notifications from 'src/pages/Notifications.vue'
 import Upgrade from 'src/pages/Upgrade.vue'
@@ -16,12 +15,12 @@ const routes = [
   {
     path: '/',
     component: DashboardLayout,
-    redirect: '/admin/UltimasNoticias'
+    redirect: '/admin/lo-proximo'
   },
   {
     path: '/admin',
     component: DashboardLayout,
-    redirect: '/admin/UltimasNoticias',
+    redirect: '/admin/lo-proximo',
     children: [
       {
         path: 'lo-proximo',
@@ -42,11 +41,6 @@ const routes = [
         path: 'typography',
         name: 'Typography',
         component: Typography
-      },
-      {
-        path: 'icons',
-        name: 'Icons',
-        component: Icons
       },
       {
         path: 'maps',
