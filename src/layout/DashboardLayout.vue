@@ -10,6 +10,10 @@
         <i class="nc-icon nc-notes"></i>
         <p>Próximos partidos</p>
       </sidebar-link>
+      <sidebar-link to="/admin/chat">
+        <i class="nc-icon nc-bell-55"></i>
+        <p>Chat</p>
+      </sidebar-link>
       <sidebar-link to="/admin/user">
         <i class="nc-icon nc-circle-09"></i>
         <p>User Profile</p>
@@ -22,11 +26,6 @@
         <i class="nc-icon nc-pin-3"></i>
         <p>Maps</p>
       </sidebar-link>
-      <sidebar-link to="/admin/notifications">
-        <i class="nc-icon nc-bell-55"></i>
-        <p>Notifications</p>
-      </sidebar-link>
-
       <template slot="bottom-links">
         <sidebar-link class="active"
                       to="/admin/upgrade">

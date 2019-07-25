@@ -8,7 +8,7 @@ import ProximosPartidos from 'src/pages/ProximosPartidos.vue'
 import UserProfile from 'src/pages/UserProfile.vue'
 import Typography from 'src/pages/Typography.vue'
 import Maps from 'src/pages/Maps.vue'
-import Notifications from 'src/pages/Notifications.vue'
+import Chat from 'src/pages/Chat.vue'
 import Upgrade from 'src/pages/Upgrade.vue'
 
 const routes = [
@@ -33,6 +33,11 @@ const routes = [
         component: ProximosPartidos
       },
       {
+        path: 'chat',
+        name: 'Chat',
+        component: Chat
+      },
+      {
         path: 'user',
         name: 'User',
         component: UserProfile
@@ -46,11 +51,6 @@ const routes = [
         path: 'maps',
         name: 'Maps',
         component: Maps
-      },
-      {
-        path: 'notifications',
-        name: 'Notifications',
-        component: Notifications
       },
       {
         path: 'upgrade',
