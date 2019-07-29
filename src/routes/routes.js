@@ -5,11 +5,10 @@ import NotFound from '../pages/NotFoundPage.vue'
 // Admin pages
 import LoProximo from 'src/pages/LoProximo.vue'
 import ProximosPartidos from 'src/pages/ProximosPartidos.vue'
-import UserProfile from 'src/pages/UserProfile.vue'
-import Typography from 'src/pages/Typography.vue'
-import Maps from 'src/pages/Maps.vue'
+import InscribirseEnNYSL from 'src/pages/InscribirseEnNYSL.vue'
+import SobreNosotros from 'src/pages/SobreNosotros.vue'
+import ConoceLasReglas from 'src/pages/ConoceLasReglas.vue'
 import Chat from 'src/pages/Chat.vue'
-import Upgrade from 'src/pages/Upgrade.vue'
 
 const routes = [
   {
@@ -38,25 +37,20 @@ const routes = [
         component: Chat
       },
       {
-        path: 'user',
-        name: 'User',
-        component: UserProfile
+        path: 'sobre-nosotros',
+        name: 'Sobre Nosotros',
+        component: SobreNosotros
       },
       {
-        path: 'typography',
-        name: 'Typography',
-        component: Typography
+        path: 'inscribirse-en-NYSL',
+        name: 'Inscribirse En NYSL',
+        component: InscribirseEnNYSL
       },
       {
-        path: 'maps',
-        name: 'Maps',
-        component: Maps
+        path: 'conoce-las-reglas',
+        name: 'Conoce Las Reglas',
+        component: ConoceLasReglas
       },
-      {
-        path: 'upgrade',
-        name: 'Upgrade to PRO',
-        component: Upgrade
-      }
     ]
   },
   { path: '*', component: NotFound }

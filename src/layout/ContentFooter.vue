@@ -1,5 +1,5 @@
 <template>
-  <footer class="page-footer font-small special-color-dark pt-4 fixed-bottom">
+  <footer class="page-footer font-medium special-color-dark pt-4 fixed-bottom">
     <!-- Footer Elements -->
     <div class="container">
       <!-- Social buttons -->
@@ -24,6 +24,8 @@
     </div>
     <!-- Footer Elements -->
   </footer>
+  
+  
 </template>
 <script>
 export default {};
