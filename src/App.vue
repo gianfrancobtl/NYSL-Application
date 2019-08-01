@@ -1,12 +1,18 @@
 <template>
   <div :class="{'nav-open': $sidebar.showSidebar}">
     <notifications></notifications>
-    <router-view></router-view>
+    <contentFooter/>
   </div>
 </template>
 
 <script>
-  export default {}
+ import contentFooter from './layout/ContentFooter'
+  export default {
+    name: 'App',
+    components:{
+      contentFooter
+    }
+  }
 </script>
 <style lang="scss">
   .vue-notifyjs.notifications{
