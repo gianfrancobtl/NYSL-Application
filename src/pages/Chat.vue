@@ -15,7 +15,7 @@
       <hr>
       <div class="messages">
         <h3>Messages</h3>
-        <div class="message" v-for-key="message in messages">
+        <div class="message" v-for ="message in messages">
           <strong>{{message.username}}</strong>
           <p>{{message.text}}</p>
         </div>
