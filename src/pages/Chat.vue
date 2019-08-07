@@ -1,21 +1,21 @@
 <template>
   <div id="app">
     <div v-if="!username">
-      You can't chat without a name. What's your name? <br />
-      <input type="text" placeholder="Name" v-on:keyup.enter="updateUsername">
+      No puedes chatear sin nombre. ¿Cómo te llamas? <br />
+      <input type="text" placeholder="Nombre" v-on:keyup.enter="updateUsername">
     </div>
     <div v-else>
       <div>
-        From : {{username}}<br />
-        Message:<br />
-        <textarea name="" id="" cols="30" rows="10" placeholder="New Message" v-on:keyup.enter="sendMessage">
+        De : {{username}}<br />
+        Mensaje:<br />
+        <textarea name="" id="" cols="30" rows="10" placeholder="Nuevo mensaje" v-on:keyup.enter="sendMessage">
 
         </textarea>
       </div>
       <hr>
       <div class="messages">
-        <h3>Messages</h3>
-        <div class="message" v-for ="message in messages">
+        <h3>Mensajes</h3>
+        <div class="message" v-for="message in messages">
           <strong>{{message.username}}</strong>
           <p>{{message.text}}</p>
         </div>

@@ -1,5 +1,5 @@
 <template>
-  <div class>
+  <div>
     <nav id="footer" class="navbar navbar-expand-sm bg-light justify-content-center fixed-bottom">
       <ul class="navbar-nav">
         <li class="nav-item">
@@ -30,6 +30,7 @@ export default {};
 <style>
 #footer {
   bottom: 0px;
+  margin-top: 50px;
   z-index: 1;
   width: 100%;
 }
