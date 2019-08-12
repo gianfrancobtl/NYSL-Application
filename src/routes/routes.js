@@ -14,7 +14,7 @@ const routes = [
   {
     path: '/',
     component: DashboardLayout,
-    redirect: '/admin/lo-proximo'
+    redirect: '/admin/proximos-partidos'
   },
   {
     path: '/admin',
@@ -40,16 +40,6 @@ const routes = [
         path: 'sobre-nosotros',
         name: 'Sobre Nosotros',
         component: SobreNosotros
-      },
-      {
-        path: 'inscribirse-en-NYSL',
-        name: 'Inscribirse En NYSL',
-        component: InscribirseEnNYSL
-      },
-      {
-        path: 'conoce-las-reglas',
-        name: 'Conoce Las Reglas',
-        component: ConoceLasReglas
       },
     ]
   },

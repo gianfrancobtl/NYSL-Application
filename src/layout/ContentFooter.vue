@@ -1,25 +1,17 @@
 <template>
   <div>
-    <nav id="footer" class="navbar navbar-expand-sm bg-light justify-content-center fixed-bottom">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <sidebar-link to="/admin/lo-proximo">
-            <i class="nc-icon nc-chart-pie-35"></i>
-          </sidebar-link>
-        </li>
-        <li class="nav-item">
-          <sidebar-link to="/admin/proximos-partidos">
-            <i class="nc-icon nc-notes"></i>
-          </sidebar-link>
-        </li>
-        <li class="nav-item">
-          <sidebar-link to="/admin/chat">
-            <i class="nc-icon nc-chat-round"></i>
-          </sidebar-link>
-        </li>
-      </ul>
+    <nav id="footer" class=" row pt-3 pb-4 d-flex justify-content-center align-items-start bg-light fixed-bottom">
+      <sidebar-link class="d-block" to="/admin/lo-proximo">
+        <i class="nc-icon nc-chart-pie-35"></i>
+      </sidebar-link>
+      <sidebar-link class="d-block" to="/admin/proximos-partidos">
+        <i class="nc-icon nc-notes"></i>
+      </sidebar-link>
+      <sidebar-link class="d-block" to="/admin/chat">
+        <i class="nc-icon nc-chat-round"></i>
+      </sidebar-link>
     </nav>
-    <router-view />
+    <router-view/>
   </div>
 </template>
 
@@ -30,8 +22,7 @@ export default {};
 <style>
 #footer {
   bottom: 0px;
-  margin-top: 50px;
   z-index: 1;
-  width: 100%;
+  height: 10%;
 }
 </style>

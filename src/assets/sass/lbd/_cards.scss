@@ -1,7 +1,8 @@
 .card{
     border-radius: $border-radius-base;
-    background-color: $white-color;
+    background-color: #428bca    ;
     margin-bottom: 30px;
+    
 
     .card-image{
         width: 100%;
@@ -71,9 +72,24 @@
 
     .card-title{
         margin: $none;
+        color: $white-color;
+        font-weight: $font-weight-light;
+        font-size: 20px;
+    }
+
+    .card-subtitle{
+        margin: $none;
+        color: $white-color;
+        font-weight: $font-weight-light;
+        font-size: 25px
+    }
+
+    .card-span{
+        margin: $none;
         color: $black-color;
         font-weight: $font-weight-light;
     }
+
     .avatar{
         width: 30px;
         height: 30px;
@@ -130,15 +146,6 @@
         position: absolute;
     }
 
-    .ct-chart{
-        margin: 30px 0 30px;
-        height: 245px;
-    }
-
-    .ct-label{
-        font-size: 1rem !important;
-    }
-
     .table{
         tbody td:first-child,
         thead th:first-child{
@@ -149,15 +156,6 @@
         thead th:last-child{
             padding-right: 15px;
             display: inline-flex;
-        }
-    }
-
-    .alert{
-        border-radius: $border-radius-base;
-        position: relative;
-
-        &.alert-with-icon{
-            padding-left: 65px;
         }
     }
 }
@@ -191,60 +189,6 @@
             line-height: 59px;
         }
     }
-
-
-}
-
-.card-user{
-    .card-image{
-        height: 110px;
-    }
-    .card-image-plain{
-        height: 0;
-        margin-top: 110px;
-    }
-    .author{
-        text-align: center;
-        text-transform: none;
-        margin-top: -70px;
-    }
-    .avatar{
-        width: 124px;
-        height: 124px;
-        border: 5px solid #FFFFFF;
-        position: relative;
-        margin-bottom: 15px;
-
-        &.border-gray{
-            border-color: #EEEEEE;
-        }
-    }
-    .title{
-        line-height: 24px;
-    }
-    .card-body{
-        min-height: 240px;
-    }
-}
-
-.card-user,
-.card-price{
-    .card-footer{
-        padding: 5px 15px 10px;
-    }
-    hr{
-        margin: 5px 15px;
-    }
-}
-.card-plain{
-    background-color: transparent;
-    box-shadow: none;
-    border-radius: 0;
-
-
-    .card-image{
-        border-radius: 4px;
-    }
 }
 
 .card.card-plain{
@@ -263,10 +207,40 @@
     width: 100%;
 }
 
-.card-proximos-partidos{
-    background-color: transparent;
+.card-primary{
     box-shadow: none;
-    border-radius: 0;
+    border-radius: 10;
     text-align:center;
     width: 100%;
+    border-width: 2px;
+}
+
+.card-secondary{
+    background-color: $white-color;
+    box-shadow: none;
+    border-radius: 10;
+    border-color: #428bca;
+    width: 100%;
+    margin-bottom: 60px;
+    border-width: 2px;
+}
+
+.card-third{
+    background-color: #428bca;
+    box-shadow: none;
+    border-radius: 10;
+    border-color: transparent;
+    text-align:center;
+    width: 100%;
+    color: $white-color;
+}
+
+.card-fourth{
+    background-color: $white-color;
+    box-shadow: none;
+    border-radius: 10;
+    border-color: #428bca;
+    text-align:center;
+    width: 100%;
+    border-width: 2px;
 }

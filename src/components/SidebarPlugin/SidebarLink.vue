@@ -31,7 +31,7 @@
         }
       },
       tag: {
-        type: String,
+        type: Object,
         default: 'router-link'
       }
     },

@@ -1,182 +1,264 @@
 <template>
   <div class="content">
     <div class="container-fluid">
-      <card class="card-proximos-partidos">
+      <card class="card-primary">
         <template slot="header">
-          <h4 class="card-title">Próximos partidos</h4>
-          <p class="card-category">Siguientes compromisos</p>
-
-          <base-dropdown title="Elegí tu club">
-            <a class="dropdown-item" href="#">U1</a>
-            <a class="dropdown-item" href="#">U2</a>
-            <a class="dropdown-item" href="#">U3</a>
-            <a class="dropdown-item" href="#">U4</a>
-            <a class="dropdown-item" href="#">U5</a>
-            <a class="dropdown-item" href="#">U6</a>
-          </base-dropdown>
+          <h2 class="title">Próximos partidos</h2>
+          <p class="category">Estos serán los siguientes partidos de la liga.</p>
         </template>
       </card>
 
-      <div class="row">
-        <div class="col-xl-3 col-md-6">
-          <stats-card>
-            <div slot="header" class="icon-warning">
-              <i class="nc-icon nc-notes"></i>
-            </div>
-            <div slot="content">
-              <p class="card-category">09:30 a.m.</p>
-              <h4 class="card-title">U1 vs. U4</h4>
-            </div>
-            <div slot="footer">
-              <i class="fa fa-calendar-o"></i>1° de septiembre
-            </div>
-          </stats-card>
+      <card class="card-fourth">
+        <div class="row d-block text-center mx-auto">
+          <label for="month">
+            <span class= "card-span">Elegí el mes   </span>
+            <select id="month" class="col-6" v-model="selectedMonth">
+              <!-- <option value selected disabled>Select Month</option> -->
+              <option value="All">Todos</option>
+              <option value="09">Septiembre</option>
+              <option value="10">Octubre</option>
+            </select>
+          </label>
         </div>
+      </card>
 
-        <div class="col-xl-3 col-md-6">
-          <stats-card>
-            <div slot="header" class="icon-success">
-              <i class="nc-icon nc-notes"></i>
-            </div>
-            <div slot="content">
-              <p class="card-category">01:00 p.m.</p>
-              <h4 class="card-title">U3 vs. U2</h4>
-            </div>
-            <div slot="footer">
-              <i class="fa fa-calendar-o"></i>1° de septiembre
-            </div>
-          </stats-card>
+      <card class="card-fourth">
+        <div class="row d-block text-center mx-auto">
+          <label for="month">
+            <span class="card-span">Elegí tu equipo    </span>
+            <select class="col-6" v-model="selectedTeam">
+              <!-- <option value selected disabled>Select Team</option> -->
+              <option value="All">Todos los equipos</option>
+              <option value="U1">U1</option>
+              <option value="U2">U2</option>
+              <option value="U3">U3</option>
+              <option value="U4">U4</option>
+              <option value="U5">U5</option>
+              <option value="U6">U6</option>
+            </select>
+          </label>
         </div>
+      </card>
 
-        <div class="col-xl-3 col-md-6">
-          <stats-card>
-            <div slot="header" class="icon-danger">
-              <i class="nc-icon nc-notes"></i>
-            </div>
-            <div slot="content">
-              <p class="card-category">09:30 a.m.</p>
-              <h4 class="card-title">U5 vs. U6</h4>
-            </div>
-            <div slot="footer">
-              <i class="fa fa-calendar-o"></i>8 de septiembre
-            </div>
-          </stats-card>
+      <card class="card-secondary">
+        <div class="row justify-content-center">
+          <div class="col-xl-12 col-md-12 col-sm-12">
+            <ul class>
+              <li class="d-block my-2" v-for="partido in partidosFiltrados" style="margin-right: 35px">
+                <game-card v-bind="partido"></game-card>
+              </li>
+            </ul>
+          </div>
         </div>
-
-        <div class="col-xl-3 col-md-6">
-          <stats-card>
-            <div slot="header" class="icon-info">
-              <i class="nc-icon nc-notes"></i>
-            </div>
-            <div slot="content">
-              <p class="card-category">01:00 p.m.</p>
-              <h4 class="card-title">U6 vs. U1</h4>
-            </div>
-            <div slot="footer">
-              <i class="fa fa-calendar-o"></i>8 de septiembre
-            </div>
-          </stats-card>
-        </div>
-      </div>
-      <div class="row">
-        <iframe
-          src="https://calendar.google.com/calendar/embed?src=kdvaoqjhm4915cfik88bsd3gr4%40group.calendar.google.com&ctz=America%2FArgentina%2FBuenos_Aires"
-          style="border: 0"
-          width="800"
-          height="600"
-          frameborder="0"
-          scrolling="no"
-        ></iframe>
-      </div>
+      </card>
     </div>
   </div>
 </template>
 
 <script>
-import ChartCard from "src/components/Cards/ChartCard.vue";
-import StatsCard from "src/components/Cards/StatsCard.vue";
-import LTable from "src/components/Table.vue";
-import { API_KEY } from "./Maps/API_KEY";
 import Vue from "vue";
-import * as VueGoogleMaps from "vue2-google-maps";
-Vue.use(VueGoogleMaps, {
-  load: {
-    key: API_KEY
-  }
-});
+import GameCard from "src/components/GameCard";
 export default {
-  components: {
-    StatsCard
-  },
   data() {
     return {
-      center: {
-        lat: 40.748817,
-        lng: -73.985428
-      },
-      options: {
-        styles: [
-          {
-            featureType: "water",
-            stylers: [
-              { saturation: 43 },
-              { lightness: -11 },
-              { hue: "#0088ff" }
-            ]
+      selectedMonth: "All",
+      selectedTeam: "All",
+      partidos: [
+        {
+          fecha: {
+            month: "09",
+            day: "01"
           },
-          {
-            featureType: "road",
-            elementType: "geometry.fill",
-            stylers: [
-              { hue: "#ff0000" },
-              { saturation: -100 },
-              { lightness: 99 }
-            ]
+          local: "U1",
+          lugar: {
+            name: "AJ Katzenmaier",
+            address: "24 W. Walton St., Chicago, IL 60610",
+            mapURL:
+              "https://www.google.com/maps/place/AJ+Katzenmaier+Elementary/@41.900229,-87.629069,14z/data=!4m5!3m4!1s0x0:0x15e198c063fc787c!8m2!3d41.9002288!4d-87.6290694?hl=es-419",
+            mapEmbed:
+              "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5939.306985556562!2d-87.63333948094261!3d41.900308578146!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880fd34e07f69da7%3A0x15e198c063fc787c!2sAJ+Katzenmaier+Elementary!5e0!3m2!1ses-419!2sar!4v1556575530951!5m2!1ses-419!2sar"
           },
-          {
-            featureType: "road",
-            elementType: "geometry.stroke",
-            stylers: [{ color: "#808080" }, { lightness: 54 }]
+          visitante: "U4",
+          hora: "09:30 AM"
+        },
+        {
+          fecha: {
+            month: "09",
+            day: "01"
           },
-          {
-            featureType: "landscape.man_made",
-            elementType: "geometry.fill",
-            stylers: [{ color: "#ece2d9" }]
+          local: "U3",
+          lugar: {
+            name: "Greenbay",
+            address: "1734 N. Orleans St., Chicago, IL 60614",
+            mapURL:
+              "https://www.google.com/maps/place/Greenbay+Elementary/@41.913865,-87.637833,14z/data=!4m5!3m4!1s0x0:0xb351205fae50c6f3!8m2!3d41.9138647!4d-87.6378335?hl=es-419",
+            mapEmbed:
+              "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5938.0051123739595!2d-87.64134185713635!3d41.9143037713579!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880fd3407260c45b%3A0xb351205fae50c6f3!2sGreenbay+Elementary!5e0!3m2!1ses-419!2sar!4v1556575633803!5m2!1ses-419!2sar"
           },
-          {
-            featureType: "poi.park",
-            elementType: "geometry.fill",
-            stylers: [{ color: "#ccdca1" }]
+          visitante: "U2",
+          hora: "01:00 PM"
+        },
+        {
+          fecha: {
+            month: "09",
+            day: "08"
           },
-          {
-            featureType: "road",
-            elementType: "labels.text.fill",
-            stylers: [{ color: "#767676" }]
+          local: "U5",
+          lugar: {
+            name: "Howard A Yeager",
+            address: "2245 N. Southport Ave., Chicago, IL 60614",
+            mapURL:
+              "https://www.google.com/maps/place/Howard+A+Yeager+Elementary/@41.923261,-87.662921,14z/data=!4m5!3m4!1s0x0:0xb6cb22b2f0358874!8m2!3d41.923261!4d-87.6629215?hl=es-419",
+            mapEmbed:
+              "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4992.601556981326!2d-87.66428867839021!3d41.9225560678641!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880fd2e37f852467%3A0xb6cb22b2f0358874!2sHoward+A+Yeager+Elementary!5e0!3m2!1ses-419!2sar!4v1556575809222!5m2!1ses-419!2sar"
           },
-          {
-            featureType: "road",
-            elementType: "labels.text.stroke",
-            stylers: [{ color: "#ffffff" }]
+          visitante: "U6",
+          hora: "09:30 AM"
+        },
+        {
+          fecha: {
+            month: "09",
+            day: "08"
           },
-          { featureType: "poi", stylers: [{ visibility: "off" }] },
-          {
-            featureType: "landscape.natural",
-            elementType: "geometry.fill",
-            stylers: [{ visibility: "on" }, { color: "#b8cb93" }]
+          local: "U6",
+          lugar: {
+            name: "Marjorie P Hart",
+            address: "2625 N. Orchard St., Chicago, IL 60614",
+            mapURL:
+              "https://www.google.com/maps/place/Marjorie+P+Hart+Elementary/@41.929623,-87.645973,15z/data=!4m5!3m4!1s0x0:0xdbff5d5dfcfcfa35!8m2!3d41.9296229!4d-87.6459727?hl=es-419",
+            mapEmbed:
+              "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2968.283306084207!2d-87.64718901787982!3d41.92976328386165!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880fd30f2637f9d7%3A0xdbff5d5dfcfcfa35!2sMarjorie+P+Hart+Elementary!5e0!3m2!1ses-419!2sar!4v1556575898303!5m2!1ses-419!2sar"
           },
-          { featureType: "poi.park", stylers: [{ visibility: "on" }] },
-          {
-            featureType: "poi.sports_complex",
-            stylers: [{ visibility: "on" }]
+          visitante: "U1",
+          hora: "01:00 PM"
+        },
+        {
+          fecha: {
+            month: "09",
+            day: "15"
           },
-          { featureType: "poi.medical", stylers: [{ visibility: "on" }] },
-          {
-            featureType: "poi.business",
-            stylers: [{ visibility: "simplified" }]
-          }
-        ]
-      }
+          local: "U2",
+          lugar: {
+            name: "North",
+            address: "1409 N. Ogden Ave., Chicago, IL 60610",
+            mapURL:
+              "https://www.google.com/maps/place/North+Elementary/@41.907145,-87.646123,14z/data=!4m5!3m4!1s0x0:0x5736e62f19086c62!8m2!3d41.9071449!4d-87.6461229?hl=es-419",
+            mapEmbed:
+              "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5935.135261549469!2d-87.6504430278821!3d41.90726461475383!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880fd33af14860a5%3A0x5736e62f19086c62!2sNorth+Elementary!5e0!3m2!1ses-419!2sar!4v1556576504512!5m2!1ses-419!2sar"
+          },
+          visitante: "U4",
+          hora: "09:30 AM"
+        },
+        {
+          fecha: {
+            month: "09",
+            day: "15"
+          },
+          local: "U3",
+          lugar: {
+            name: "AJ Katzenmaier",
+            address: "24 W. Walton St., Chicago, IL 60610",
+            mapURL:
+              "https://www.google.com/maps/place/AJ+Katzenmaier+Elementary/@41.900229,-87.629069,14z/data=!4m5!3m4!1s0x0:0x15e198c063fc787c!8m2!3d41.9002288!4d-87.6290694?hl=es-419",
+            mapEmbed:
+              "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5939.306985556562!2d-87.63333948094261!3d41.900308578146!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880fd34e07f69da7%3A0x15e198c063fc787c!2sAJ+Katzenmaier+Elementary!5e0!3m2!1ses-419!2sar!4v1556575530951!5m2!1ses-419!2sar"
+          },
+          visitante: "U5",
+          hora: "01:00 PM"
+        },
+        {
+          fecha: {
+            month: "09",
+            day: "22"
+          },
+          local: "U1",
+          lugar: {
+            name: "South",
+            address: "2101 N. Fremont St., Chicago, IL 60614",
+            mapURL:
+              "https://www.google.com/maps/place/2101+N+Fremont+St,+Chicago,+IL+60614,+EE.+UU./@41.919777,-87.651367,15z/data=!4m5!3m4!1s0x880fd3196fb41dc7:0x970be7f7d6336df5!8m2!3d41.9197768!4d-87.6513667?hl=es-419",
+            mapEmbed:
+              "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2968.747764826565!2d-87.65355538505456!3d41.91978077078474!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880fd3196fb41dc7%3A0x970be7f7d6336df5!2s2101+N+Fremont+St%2C+Chicago%2C+IL+60614%2C+EE.+UU.!5e0!3m2!1ses-419!2sar!4v1556576874415!5m2!1ses-419!2sar"
+          },
+          visitante: "U3",
+          hora: "09:30 AM"
+        },
+        {
+          fecha: {
+            month: "09",
+            day: "22"
+          },
+          local: "U2",
+          lugar: {
+            name: "Howard A Yeager",
+            address: "2245 N. Southport Ave., Chicago, IL 60614",
+            mapURL:
+              "https://www.google.com/maps/place/Howard+A+Yeager+Elementary/@41.923261,-87.662921,14z/data=!4m5!3m4!1s0x0:0xb6cb22b2f0358874!8m2!3d41.923261!4d-87.6629215?hl=es-419",
+            mapEmbed:
+              "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d4992.601556981326!2d-87.66428867839021!3d41.9225560678641!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880fd2e37f852467%3A0xb6cb22b2f0358874!2sHoward+A+Yeager+Elementary!5e0!3m2!1ses-419!2sar!4v1556575809222!5m2!1ses-419!2sar"
+          },
+          visitante: "U6",
+          hora: "01:00 PM"
+        },
+        {
+          fecha: {
+            month: "09",
+            day: "29"
+          },
+          local: "U4",
+          lugar: {
+            name: "Greenbay",
+            address: "1734 N. Orleans St., Chicago, IL 60614",
+            mapURL:
+              "https://www.google.com/maps/place/Greenbay+Elementary/@41.913865,-87.637833,14z/data=!4m5!3m4!1s0x0:0xb351205fae50c6f3!8m2!3d41.9138647!4d-87.6378335?hl=es-419",
+            mapEmbed:
+              "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5938.0051123739595!2d-87.64134185713635!3d41.9143037713579!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x880fd3407260c45b%3A0xb351205fae50c6f3!2sGreenbay+Elementary!5e0!3m2!1ses-419!2sar!4v1556575633803!5m2!1ses-419!2sar"
+          },
+          visitante: "U5",
+          hora: "09:30 AM"
+        }
+      ]
     };
-  }
+  },
+  computed: {
+    // partidosFiltrados: function() {
+    //   return this.partidos.filter(
+    //     partido => partido.fecha.month === this.selectedDate
+    //   );
+    // }
+
+    //Esta función filtra por Mes, o por Equipo, o combina ambos
+    partidosFiltrados: function() {
+      var month = this.selectedMonth;
+      var team = this.selectedTeam;
+
+      if (month === "All" && team === "All") {
+        //save performance, juste return the default array:
+        return this.partidos;
+      } else {
+        return this.partidos.filter(function(partido) {
+          //return the array after passing it through the filter function:
+          return (
+            (month === "All" || partido.fecha.month === month) &&
+            (team === "All" ||
+              partido.local === team ||
+              partido.visitante === team)
+          );
+        });
+      }
+    }
+  },
+  props: {},
+  components: {
+    GameCard
+  },
+  name: "Partidos"
 };
 </script>
+
+<style scoped>
+.nostyle {
+  list-style: none;
+}
+</style>
+

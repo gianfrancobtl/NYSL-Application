@@ -1,7 +1,7 @@
 <template>
   <div class="content">
     <div class="container-fluid">
-      <card class="card-lo-proximo">
+      <card class="card-primary">
             <template slot="header">
               <h2 class="title">Lo próximo</h2>
               <p class="category">Esto está pasando en el club</p>
@@ -10,7 +10,7 @@
 
       <div class="row">
         <div class="col-xl-12 col-md-12">
-          <card class="card plain">
+          <card class="card-secondary">
             <l-table :data="tableData.data"
                      :columns="tableData.columns">
               <template slot="columns"></template>
