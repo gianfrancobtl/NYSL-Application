@@ -1,6 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-lg">
     <div class="container-fluid">
+      <i src="NYSL-Application/public/img/faces/nysl_logo.png" alt="a"></i>
       <a class="navbar-brand" href="#">NYSL</a>
       <button
         type="button"

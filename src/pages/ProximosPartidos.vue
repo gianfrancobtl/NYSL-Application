@@ -40,7 +40,6 @@
         </div>
       </card>
 
-      <card class="card-secondary">
         <div class="row justify-content-center">
           <div class="col-xl-12 col-md-12 col-sm-12">
             <ul class>
@@ -50,7 +49,6 @@
             </ul>
           </div>
         </div>
-      </card>
     </div>
   </div>
 </template>

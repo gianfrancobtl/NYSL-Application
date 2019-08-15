@@ -5,9 +5,7 @@ import NotFound from '../pages/NotFoundPage.vue'
 // Admin pages
 import LoProximo from 'src/pages/LoProximo.vue'
 import ProximosPartidos from 'src/pages/ProximosPartidos.vue'
-import InscribirseEnNYSL from 'src/pages/InscribirseEnNYSL.vue'
 import SobreNosotros from 'src/pages/SobreNosotros.vue'
-import ConoceLasReglas from 'src/pages/ConoceLasReglas.vue'
 import Chat from 'src/pages/Chat.vue'
 
 const routes = [
