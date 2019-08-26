@@ -1,7 +1,11 @@
 <template>
+<div class="content">
   <div id="app">
+    <div class="forum">
+       <h1>Foro general</h1>
+    </div>
     <div v-if="!username">
-      No puedes chatear sin nombre. ¿Cómo te llamas? <br />
+      No puedes hablar en el foro sin nombre. ¿Cómo te llamas? <br />
       <input type="text" placeholder="Nombre" v-on:keyup.enter="updateUsername">
     </div>
     <div v-else>
@@ -22,6 +26,7 @@
       </div>
     </div>
   </div>
+</div>
 </template>
   
 <script>
@@ -86,13 +91,23 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  color: black;
+}
+
+.content{
+  background-color: #909C9A;
+}
+
+.forum{
+  text-align: center;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
+  font-size: 20px;
 }
 
 .messages {
   text-align: left;
 }
+
 .message {
   border: #000 solid 2px;
   padding: 5px;

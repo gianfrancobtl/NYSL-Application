@@ -13,14 +13,14 @@
     border-radius: 0;
     min-height: 50px;
     background-color: $white-navbar;
-    border-bottom: 10px solid #428bca;
+    border-bottom: 10px solid #A0AB42;
     padding: 5px 15px;
 
     .navbar-brand {
-        font-weight: 400;
+        font-weight: 800;
         margin: 5px 0px;
-        font-size: 20px;
-        color: #428bca;
+        font-size: 22px;
+        color: #1A1C07;
 
         &:hover{
             color: #5e5e5e;
@@ -48,7 +48,7 @@
         .burger-lines{
             display: block;
             position: relative;
-            background-color: #428bca;
+            background-color: #1A1C07;
             width: 24px;
             height: 2px;
             border-radius: 1px;

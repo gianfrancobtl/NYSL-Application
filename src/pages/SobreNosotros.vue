@@ -36,4 +36,15 @@ export default {
 };
 </script>
 <style>
+
+.card-fourth {
+  background-color: #C6D2D2;
+  box-shadow: none;
+  border-radius: 10;
+  border-color: #A0AB42;
+  text-align: center;
+  width: 100%;
+  border-width: 2px;
+}
+
 </style>

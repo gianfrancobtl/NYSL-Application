@@ -1,10 +1,9 @@
 <template>
-  <div class="content">
     <div class="container-fluid">
-      <card class="card-third text-center" style="width: 100%">
+      <card class="card-third text-center">
         <h4 class="card-title">{{fecha.month}}/{{fecha.day}} - {{hora}}</h4>
         <h4 class="card-subtitle">{{local}} vs. {{visitante}}</h4>
-        <button class="bg-white btn text-secondary" @click="details=!details">Detalles del partido</button>
+        <button class="bg-white btn text-secondary m-3" @click="details=!details">Detalles del partido</button>
         <div v-show="details">
           <div class="embed-responsive embed-responsive-4by3">
             <iframe
@@ -20,7 +19,6 @@
         </div>
       </card>
     </div>
-  </div>
 </template>
 
 <script>
@@ -41,4 +39,15 @@ export default {
 };
 </script>
 <style scoped>
+
+.card-third {
+  background-color: #C6D2D2;
+  box-shadow: none;
+  border-radius: 20;
+  border-color: #A0AB42;
+  text-align: center;
+  width: 100%;
+  border-width: 3px;
+}
+
 </style>

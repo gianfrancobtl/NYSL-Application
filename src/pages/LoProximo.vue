@@ -50,15 +50,42 @@
 
         tableData: {
           data: [
-            {date: 'August 4', title: 'NYSL Fundraiser'},
-            {date: 'August 16', title: 'Season Kick-off: Meet the Teams'},
-            {date: 'September 1', title: 'First Game of the Season (Check Game Schedule for details)'},
+            {date: '4 Agosto', title: 'Recaudación de fondos en el club'},
+            {date: '16 Agosto', title: '¡Patada inicial: conocé a los equipos!'},
+            {date: '1 Septiembre', title: 'Primer partido de la temporada. Más información en la página de horarios.'},
           ]
         }
       }
     }
   }
 </script>
-<style>
+<style scoped>
+.content{
+  background-color:#909C9A;
+}
+
+.footer{
+  background-color: #C6D2D2;
+}
+
+.card-primary {
+  box-shadow: none;
+  border-radius: 10;
+  text-align: center;
+  width: 100%;
+  border-width: 2px;
+  background-color: #A0AB42;
+  
+}
+
+.card-secondary {
+  background-color: #C6D2D2;
+  box-shadow: none;
+  border-radius: 10;
+  border-color: #A0AB42;
+  width: 100%;
+  margin-bottom: 60px;
+  border-width: 2px;
+}
 
 </style>

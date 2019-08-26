@@ -11,9 +11,8 @@
       <card class="card-fourth">
         <div class="row d-block text-center mx-auto">
           <label for="month">
-            <span class= "card-span">Elegí el mes   </span>
+            <span class="card-span">Elegí el mes</span>
             <select id="month" class="col-6" v-model="selectedMonth">
-              <!-- <option value selected disabled>Select Month</option> -->
               <option value="All">Todos</option>
               <option value="09">Septiembre</option>
               <option value="10">Octubre</option>
@@ -25,9 +24,8 @@
       <card class="card-fourth">
         <div class="row d-block text-center mx-auto">
           <label for="month">
-            <span class="card-span">Elegí tu equipo    </span>
+            <span class="card-span">Elegí tu equipo</span>
             <select class="col-6" v-model="selectedTeam">
-              <!-- <option value selected disabled>Select Team</option> -->
               <option value="All">Todos los equipos</option>
               <option value="U1">U1</option>
               <option value="U2">U2</option>
@@ -40,15 +38,13 @@
         </div>
       </card>
 
-        <div class="row justify-content-center">
-          <div class="col-xl-12 col-md-12 col-sm-12">
-            <ul class>
-              <li class="d-block my-2" v-for="partido in partidosFiltrados" style="margin-right: 35px">
-                <game-card v-bind="partido"></game-card>
-              </li>
-            </ul>
-          </div>
-        </div>
+      <div class="row-xl-12 row-md-12 row-sm-12 justify-content-center mx-auto">
+        <ul class="nostyle row d-block">
+          <li class="d-block" v-for="partido in partidosFiltrados" style="margin-right: 35px">
+            <game-card v-bind="partido"></game-card>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
@@ -255,8 +251,28 @@ export default {
 </script>
 
 <style scoped>
-.nostyle {
-  list-style: none;
+.content {
+  background-color: #909c9a;
 }
+
+.card-primary {
+  box-shadow: none;
+  border-radius: 10;
+  text-align: center;
+  width: 100%;
+  border-width: 2px;
+  background-color: #A0AB42;
+}
+
+.card-fourth {
+  background-color: #C6D2D2;
+  box-shadow: none;
+  border-radius: 10;
+  border-color: #A0AB42;
+  text-align: center;
+  width: 100%;
+  border-width: 2px;
+}
+
 </style>
 

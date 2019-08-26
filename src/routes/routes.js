@@ -7,6 +7,8 @@ import LoProximo from 'src/pages/LoProximo.vue'
 import ProximosPartidos from 'src/pages/ProximosPartidos.vue'
 import SobreNosotros from 'src/pages/SobreNosotros.vue'
 import Chat from 'src/pages/Chat.vue'
+import Register from 'src/pages/Register.vue'
+
 
 const routes = [
   {
@@ -19,6 +21,11 @@ const routes = [
     component: DashboardLayout,
     redirect: '/admin/lo-proximo',
     children: [
+      {
+        path: 'register',
+        name: 'Register',
+        component: Register
+      },
       {
         path: 'lo-proximo',
         name: 'Lo Próximo',
